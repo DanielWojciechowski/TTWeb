@@ -1,4 +1,4 @@
-var app = angular.module('ttweb', ['uiGmapgoogle-maps']);
+var app = angular.module('ttweb', ['uiGmapgoogle-maps', 'ui.bootstrap', 'ui.grid']);
 app.config(function(uiGmapGoogleMapApiProvider) {
     uiGmapGoogleMapApiProvider.configure({
         key: 'AIzaSyDetO59xcCFPzP3c-wvfbTfQUuep5I9Y94',
@@ -9,6 +9,14 @@ app.config(function(uiGmapGoogleMapApiProvider) {
 
 app.controller("mapCtrl", function($scope) {
     $scope.map = { center: { latitude: 45, longitude: -73 }, zoom: 8 };
+
+    $scope.myData = [
+        {name: "Moroni", age: 50},
+        {name: "Tiancum", age: 43},
+        {name: "Jacob", age: 27},
+        {name: "Nephi", age: 29},
+        {name: "Enos", age: 34}];
+
 });
 /*
 app.config(function ($stateProvider, $urlRouterProvider) {

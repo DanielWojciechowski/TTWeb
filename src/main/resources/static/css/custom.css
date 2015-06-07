@@ -1,3 +1,7 @@
 .angular-google-map-container {
     height: 400px;
 }
+
+.my-datepicker .btn {
+    padding: 1px 6px;
+}

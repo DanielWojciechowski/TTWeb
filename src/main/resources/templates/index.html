@@ -4,21 +4,56 @@
         <meta charset="utf-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes"/>
         <title>Travel Tracker Web App</title>
-        <link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.4/css/bootstrap.min.css"
-              th:href="@{/webjars/bootstrap/3.3.4/css/bootstrap.min.css}" rel="stylesheet" media="screen"/>
+        <link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.4/css/bootstrap.min.css" th:href="@{/webjars/bootstrap/3.3.4/css/bootstrap.min.css}" rel="stylesheet" media="screen"/>
+        <link href="./css/ui-grid/ui-grid.css" rel="stylesheet" />
         <link rel="stylesheet" type="text/css" href="../css/custom.css" />
     </head>
 
-    <body ng-app="ttweb">
-        <div ng-controller="mapCtrl">
-            hELLO wORLD!
-            <ui-gmap-google-map center='map.center' zoom='map.zoom'></ui-gmap-google-map>
+    <body ng-app="ttweb" class="container">
+
+        <div class="wrapper" data-ng-controller="mapCtrl">
+            <header>
+                <h1 style="margin-top: 5px;">Travel Tracker Web</h1>
+            </header>
+            <section id="body">
+                <div class="row">
+                    <div class="col-md-4 my-datepicker" style="display:inline-block;">
+                        <datepicker ng-model="dt" min-date="minDate" show-weeks="true" class="well well-sm" custom-class="getDayClass(date, mode)" style="margin-bottom: 0px"></datepicker>
+                    </div>
+
+                    <div class="col-md-7 grid" ui-grid="{ data: myData }" style="height: 194px;"></div>
+                </div>
+
+                <ui-gmap-google-map center='map.center' zoom='map.zoom'></ui-gmap-google-map>
+            </section>
         </div>
+        <div>
+            <div class="footer">
+                <div class="well well-sm">
+                    <h6>
+                        Wersja: 0.01<br/>
+                        <div class="text-center">
+                            Travel Tracker<br/>
+                            Aplikacja stworzona przez Daniela Wojciechowskiego w ramach projektu z przedmiotu "Technologie internetowe i mobilne".<br />
+                            Wojskowa Akademia Techniczna, 2015 r.
+                        </div>
+                    </h6>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
 
         <script src="http://cdn.jsdelivr.net/webjars/angularjs/1.4.0/angular.min.js" th:src="@{/webjars/angularjs/1.4.0/angular.min.js}"></script>
         <script src="http://cdn.jsdelivr.net/webjars/angular-ui-router/0.2.15/angular-ui-router.min.js" th:src="@{/webjars/angular-ui-router/0.2.15/angular-ui-router.min.js}"></script>
         <script src="http://cdn.jsdelivr.net/webjars/angular-google-maps/2.1.1/angular-google-maps.min.js" th:src="@{/webjars/angular-google-maps/2.1.1/angular-google-maps.min.js}"></script>
         <script src="http://cdn.jsdelivr.net/webjars/lodash/3.6.0/lodash.min.js" th:src="@{/webjars/lodash/3.6.0/lodash.min.js}"></script>
+        <script src="http://cdn.jsdelivr.net/webjars/angular-ui-bootstrap/0.13.0/ui-bootstrap.min.js" th:src="@{/webjars/angular-ui-bootstrap/0.13.0/ui-bootstrap.min.js}"></script>
+        <script src="http://cdn.jsdelivr.net/webjars/angular-ui-bootstrap/0.13.0/ui-bootstrap-tpls.min.js" th:src="@{/webjars/angular-ui-bootstrap/0.13.0/ui-bootstrap-tpls.min.js}"></script>
+        <script type="text/javascript" src="./js/libs/ui-grid.js"></script>
 
         <script type="text/javascript" src="../js/app.js" th:src="@{/js/app.js}"></script>
     </body>
