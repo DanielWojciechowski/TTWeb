@@ -1,4 +1,4 @@
-var app = angular.module('ttweb', ['uiGmapgoogle-maps', 'ui.bootstrap', 'ui.grid']);
+var app = angular.module('ttweb', ['uiGmapgoogle-maps', 'ui.bootstrap', 'ui.grid', 'ui.grid.selection']);
 app.config(function(uiGmapGoogleMapApiProvider) {
 
 

@@ -2,6 +2,7 @@ app.service('userService', function () {
     var username;
     var uid;
     var travels;
+    var selectedTravelId;
 
     return {
         getUsername: function () {
@@ -25,6 +26,13 @@ app.service('userService', function () {
             travels = value;
         },
 
+        getSelectedTravelId: function () {
+            return selectedTravelId;
+        },
+        setSelectedTravelId: function(value) {
+            selectedTravelId = value;
+        },
+
         getTravelsInDate: function(date) {
             var travelsInDate = [];
 
@@ -34,6 +42,17 @@ app.service('userService', function () {
                 }
             });
             return travelsInDate;
+        },
+
+        getTravelById: function(id) {
+            var travel = {};
+            angular.forEach(travels, function(item) {
+                if(item.id == id){
+                    travel = item;
+                }
+            });
+            return travel;
         }
+
     };
 });

@@ -36,12 +36,17 @@
                         <datepicker ng-model="selectedDate" min-date="minDate" show-weeks="true" class="well well-sm" custom-class="getDayClass(date, mode)" style="margin-bottom: 0px"></datepicker>
                     </div>
 
-                    <div class="col-md-7 grid" ui-grid="gridOptions" style="height: 194px; overflow: hidden"></div>
+                    <div class="col-md-7 grid" ui-grid="gridOptions" ui-grid-selection="true" style="height: 194px; overflow: hidden"></div>
                 </div>
 
 
                 <div data-ng-controller="mapCtrl">
-                    <ui-gmap-google-map center='map.center' zoom='map.zoom'></ui-gmap-google-map>
+                    <ui-gmap-google-map center='map.center' zoom='map.zoom'>
+                        <ui-gmap-markers models="checkpoints" coords="'location'" icon="'icon'"></ui-gmap-markers>
+                        <ui-gmap-polylines models="polylines" path="'path'" stroke="'stroke'" visible="visible"
+                                           geodesic="'geodesic'" editable="'editable'" draggable="'draggable'" static="true">
+                        </ui-gmap-polylines>
+                    </ui-gmap-google-map>
                 </div>
             </section>
         </div>
