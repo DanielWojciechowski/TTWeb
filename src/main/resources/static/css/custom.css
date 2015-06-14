@@ -10,9 +10,13 @@
     padding: 10px;
 }
 
-.large-Modal .modal-dialog{
-    width:500px; height: 500px;
-    position: absolute;
-    top:0; bottom: 0; left: 0; right: 0;
-    margin: auto
+.full button span {
+    background-color: limegreen;
+    border-radius: 32px;
+    color: black;
+}
+
+.ui-grid-viewport {
+    overflow-x: hidden !important;
+    overflow-y: visible !important;
 }

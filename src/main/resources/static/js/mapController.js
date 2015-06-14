@@ -6,9 +6,10 @@ app.controller("mapCtrl", function($scope, $rootScope, userService, $modal) {
     $scope.checkpoints = [];
     $scope.polylines = [];
     $scope.imageMarkers = [];
+    var travel = [];
 
     $rootScope.$on('travelSelected', function () {
-        var travel = userService.getTravelById(userService.getSelectedTravelId());
+        travel = userService.getTravelById(userService.getSelectedTravelId());
         $scope.map.center.latitude = travel.trace[0].latitude;
         $scope.map.center.longitude = travel.trace[0].longitude;
 
@@ -74,15 +75,25 @@ app.controller("mapCtrl", function($scope, $rootScope, userService, $modal) {
     };
 
     var open = function (id) {
-
+        var imgIndex = null;
         var modalInstance = $modal.open({
             animation: true,
             templateUrl: './views/modal.html',
             controller: 'modalCtrl',
             size: 'lg',
             resolve: {
+                imgArr: function(){
+                    var arr = [];
+                    angular.forEach(travel.photos, function(item) {
+                        arr.push(item.path);
+                        if(item.path === id){
+                            imgIndex = arr.length-1;
+                        }
+                    });
+                    return arr;
+                },
                 img: function () {
-                    return id;
+                    return imgIndex;
                 }
             }
         });

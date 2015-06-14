@@ -13,8 +13,7 @@
         <link rel="shortcut icon" href="./images/icon.ico" />
     </head>
 
-    <body ng-app="ttweb" class="container" style="background-color: #f8f8f8">
-
+    <body data-ng-cloak="true" data-ng-app="ttweb" class="container" style="background-color: #f8f8f8">
         <div class="wrapper" >
             <header>
                 <nav class="navbar navbar-default" data-ng-controller="headerCtrl">
@@ -32,11 +31,15 @@
 
             <section id="body" class="jumbotron customJumbotron">
                 <div class="row" data-ng-controller="travelListCtrl">
-                    <div class="col-sm-offset-1 col-md-3 my-datepicker" style="display:inline-block; margin-bottom: 20px">
-                        <datepicker ng-model="selectedDate" min-date="minDate" show-weeks="true" class="well well-sm" custom-class="getDayClass(date, mode)" style="margin-bottom: 0px"></datepicker>
+                    <div data-ng-show="events !== null">
+                        <div class="col-sm-offset-1 col-md-3 my-datepicker" style="display:table; margin-bottom: 20px; margin-left: 20px; padding-right: 40px">
+                            <datepicker ng-model="selectedDate" starting-day="1" max-date="maxDate" show-weeks="true" class="well well-sm" custom-class="getDayClass(date, mode)"
+                                        style="margin-bottom: 0"></datepicker>
+                        </div>
                     </div>
 
-                    <div class="col-md-7 grid" ui-grid="gridOptions" ui-grid-selection="true" style="height: 194px; overflow: hidden"></div>
+
+                    <div class="col-md-8 grid" ui-grid="gridOptions" ui-grid-selection="true" style="height: 194px; overflow: hidden; border: 0; padding: 0"></div>
                 </div>
 
 
@@ -44,7 +47,6 @@
                     <ui-gmap-google-map center='map.center' zoom='map.zoom'>
                         <ui-gmap-markers models="checkpoints" coords="'location'" icon="'icon'"></ui-gmap-markers>
                         <ui-gmap-markers models="imageMarkers" coords="'location'" icon="'icon'" events="markersEvents"></ui-gmap-markers>
-
                         <ui-gmap-polylines models="polylines" path="'path'" stroke="'stroke'" visible="visible"
                                            geodesic="'geodesic'" editable="'editable'" draggable="'draggable'" static="true">
                         </ui-gmap-polylines>
@@ -54,7 +56,7 @@
         </div>
         <div class="footer well well-sm">
             <h6>
-                Wersja: 0.01<br/>
+                Wersja: 1.0<br/>
                 <div class="text-center">
                     Travel Tracker<br/>
                     Aplikacja stworzona przez Daniela Wojciechowskiego w ramach projektu z przedmiotu "Technologie internetowe i mobilne".<br />
@@ -66,18 +68,17 @@
 
 
 
-
-
         <script src="http://cdn.jsdelivr.net/webjars/angularjs/1.4.0/angular.min.js" th:src="@{/webjars/angularjs/1.4.0/angular.min.js}"></script>
         <script src="http://cdn.jsdelivr.net/webjars/angular-ui-router/0.2.15/angular-ui-router.min.js" th:src="@{/webjars/angular-ui-router/0.2.15/angular-ui-router.min.js}"></script>
         <script src="http://cdn.jsdelivr.net/webjars/angular-google-maps/2.1.1/angular-google-maps.js" th:src="@{/webjars/angular-google-maps/2.1.1/angular-google-maps.js}"></script>
         <script src="http://cdn.jsdelivr.net/webjars/lodash/3.6.0/lodash.min.js" th:src="@{/webjars/lodash/3.6.0/lodash.min.js}"></script>
         <script src="http://cdn.jsdelivr.net/webjars/angular-ui-bootstrap/0.13.0/ui-bootstrap.min.js" th:src="@{/webjars/angular-ui-bootstrap/0.13.0/ui-bootstrap.min.js}"></script>
         <script src="http://cdn.jsdelivr.net/webjars/angular-ui-bootstrap/0.13.0/ui-bootstrap-tpls.min.js" th:src="@{/webjars/angular-ui-bootstrap/0.13.0/ui-bootstrap-tpls.min.js}"></script>
-        <script type="text/javascript" src="./js/libs/ui-grid.js"></script>
-        <script type="text/javascript" src="./js/libs/dropbox.min.js"></script>
-        <script type="text/javascript" src="./js/libs/locale_pl.js"></script>
-        <script type="text/javascript" src="./js/libs/exif.js"></script>
+        <script type="text/javascript" src="./js/libs/ui-grid.js" th:src="@{/js/libs/ui-grid.js}"></script>
+        <script type="text/javascript" src="./js/libs/dropbox.min.js" th:src="@{/js/libs/dropbox.min.js}"></script>
+        <script type="text/javascript" src="./js/libs/locale_pl.js" th:src="@{/js/libs/locale_pl.js}"></script>
+        <script type="text/javascript" src="./js/libs/exif.js" th:src="@{/js/libs/exif.js}"></script>
+        <script type="text/javascript" src="./js/libs/datepicker.decorator.js" th:src="@{/js/libs/datepicker.decorator.js}"></script>
 
         <script type="text/javascript" src="../js/app.js" th:src="@{/js/app.js}"></script>
 

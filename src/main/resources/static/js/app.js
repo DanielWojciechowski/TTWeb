@@ -10,17 +10,3 @@ app.config(function(uiGmapGoogleMapApiProvider) {
     });
 });
 
-/*
-app.config(function ($stateProvider, $urlRouterProvider) {
-
-    $stateProvider
-        .state('home', {
-            url: '/home',
-            templateUrl: './views/home.html',
-            controller: 'homeController'
-        });
-
-    $urlRouterProvider.otherwise('/else');
-
-});*/
-
