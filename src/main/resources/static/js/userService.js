@@ -3,6 +3,7 @@ app.service('userService', function () {
     var uid;
     var travels;
     var selectedTravelId;
+    var client;
 
     return {
         getUsername: function () {
@@ -32,6 +33,14 @@ app.service('userService', function () {
         setSelectedTravelId: function(value) {
             selectedTravelId = value;
         },
+
+        getClient: function () {
+            return client;
+        },
+        setClient: function(value) {
+            client = value;
+        },
+
 
         getTravelsInDate: function(date) {
             var travelsInDate = [];

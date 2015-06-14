@@ -1,5 +1,5 @@
 'use strict';
-app.controller("headerCtrl", function($scope, $http, userService/*, restResourceService*/) {
+app.controller("headerCtrl", function($scope, $http, userService) {
 
     $http.defaults.headers.post["Content-Type"] = "application/json";
 
@@ -30,13 +30,9 @@ app.controller("headerCtrl", function($scope, $http, userService/*, restResource
                     });
             });
         });
-    }
 
-/*    var prepareObjectIds = function(array){
-        angular.forEach(array, function(value, key) {
-            value.reservationId = restResourceService.getObjectIdFromUrl(value._links.self.href);
-        });
-    }*/
+        userService.setClient(client);
+    }
 
     prepareViewData();
 });

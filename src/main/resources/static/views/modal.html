@@ -1,0 +1,14 @@
+<div class="modal-header">
+    <h4 class="modal-title">{{img}}</h4>
+</div>
+<div class="modal-footer">
+    <div ng-show="image !== null">
+        <img ng-src="{{image}}" height="450" width="450" id="imgF" degrees='angle' rotate="true">
+    </div>
+    <div ng-show="image === null">
+        <div class="progress progress-striped active">
+            <progressbar class="progress-striped active" value="dynamic" type="info">Trwa ładowanie zdjęcia</progressbar>
+        </div>
+    </div>
+
+</div>

@@ -43,6 +43,8 @@
                 <div data-ng-controller="mapCtrl">
                     <ui-gmap-google-map center='map.center' zoom='map.zoom'>
                         <ui-gmap-markers models="checkpoints" coords="'location'" icon="'icon'"></ui-gmap-markers>
+                        <ui-gmap-markers models="imageMarkers" coords="'location'" icon="'icon'" events="markersEvents"></ui-gmap-markers>
+
                         <ui-gmap-polylines models="polylines" path="'path'" stroke="'stroke'" visible="visible"
                                            geodesic="'geodesic'" editable="'editable'" draggable="'draggable'" static="true">
                         </ui-gmap-polylines>
@@ -68,21 +70,25 @@
 
         <script src="http://cdn.jsdelivr.net/webjars/angularjs/1.4.0/angular.min.js" th:src="@{/webjars/angularjs/1.4.0/angular.min.js}"></script>
         <script src="http://cdn.jsdelivr.net/webjars/angular-ui-router/0.2.15/angular-ui-router.min.js" th:src="@{/webjars/angular-ui-router/0.2.15/angular-ui-router.min.js}"></script>
-        <script src="http://cdn.jsdelivr.net/webjars/angular-google-maps/2.1.1/angular-google-maps.min.js" th:src="@{/webjars/angular-google-maps/2.1.1/angular-google-maps.min.js}"></script>
+        <script src="http://cdn.jsdelivr.net/webjars/angular-google-maps/2.1.1/angular-google-maps.js" th:src="@{/webjars/angular-google-maps/2.1.1/angular-google-maps.js}"></script>
         <script src="http://cdn.jsdelivr.net/webjars/lodash/3.6.0/lodash.min.js" th:src="@{/webjars/lodash/3.6.0/lodash.min.js}"></script>
         <script src="http://cdn.jsdelivr.net/webjars/angular-ui-bootstrap/0.13.0/ui-bootstrap.min.js" th:src="@{/webjars/angular-ui-bootstrap/0.13.0/ui-bootstrap.min.js}"></script>
         <script src="http://cdn.jsdelivr.net/webjars/angular-ui-bootstrap/0.13.0/ui-bootstrap-tpls.min.js" th:src="@{/webjars/angular-ui-bootstrap/0.13.0/ui-bootstrap-tpls.min.js}"></script>
         <script type="text/javascript" src="./js/libs/ui-grid.js"></script>
         <script type="text/javascript" src="./js/libs/dropbox.min.js"></script>
         <script type="text/javascript" src="./js/libs/locale_pl.js"></script>
+        <script type="text/javascript" src="./js/libs/exif.js"></script>
 
         <script type="text/javascript" src="../js/app.js" th:src="@{/js/app.js}"></script>
 
         <script type="text/javascript" src="../js/travelListController.js" th:src="@{/js/travelListController.js}"></script>
         <script type="text/javascript" src="../js/mapController.js" th:src="@{/js/mapController.js}"></script>
         <script type="text/javascript" src="../js/headerController.js" th:src="@{/js/headerController.js}"></script>
+        <script type="text/javascript" src="../js/modalController.js" th:src="@{/js/modalController.js}"></script>
 
         <script type="text/javascript" src="../js/userService.js" th:src="@{/js/userService.js}"></script>
         <script type="text/javascript" src="../js/restResourceService.js" th:src="@{/js/restResourceService.js}"></script>
+
+        <script type="text/javascript" src="../js/rotateDirective.js" th:src="@{/js/rotateDirective.js}"></script>
     </body>
 </html>
